@@ -1,6 +1,11 @@
 [build]
   functions = "functions"
 
+[functions.index]
+  external_node_modules = ["express", "ejs",]
+  node_bundler = "esbuild"
+  included_files = ["views/**", "public/**"]
+
 [[redirects]]
   from = "/*"
   status = 200
