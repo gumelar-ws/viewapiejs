@@ -6,8 +6,8 @@ const serverless = require('serverless-http');
 const app = express();
 
 app.use(express.static(path.join(__dirname, '../public')))
-  .set('views', path.join(__dirname, '../views'))
-  .set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '../views'))
+app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
   res.render('index');
@@ -20,7 +20,7 @@ app.get('/api', (req, res) => {
   res.json({"msg": "Hello world"});
 });
 
-pp.use(function(req, res, next) {
+app.use(function(req, res, next) {
     next(createError(404));
   });
   
